@@ -6,7 +6,7 @@ Fortunately Python can read from the Windows Registry, and the paths to these re
 
 Use is pretty simple, just import and use with no parameters.
 
-```
+```python
 # import modules
 from get_business_analyst_data_paths import get_usa_locator_path
 
@@ -16,7 +16,7 @@ address_locator = get_usa_locator_path()
 # now go write the rest of the script and geocode like a champ!
 ```
 
-```
+```python
 # import modules
 from get_business_analyst_data_paths import get_usa_network_dataset_path
 
