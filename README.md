@@ -15,3 +15,13 @@ address_locator = get_usa_locator_path()
 
 # now go write the rest of the script and geocode like a champ!
 ```
+
+```
+# import modules
+from get_business_analyst_data_paths import get_usa_network_dataset_path
+
+# get the path to the USA address locator
+network_dataset = get_usa_network_dataset_path()
+
+# now go write the rest of the script and route like a boss!
+```
