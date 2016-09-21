@@ -35,7 +35,7 @@ from get_business_analyst_data_paths import get_usa_data_path
 ba_data = get_usa_data_path()
 
 # then, for example, get the path to the block groups data
-block_group_feature_class = os.path.join(get_usa_data_path(), r'Data\Demographic Data\esri_bg.bds')
+block_group_feature_class = path.join(get_usa_data_path(), r'Data\Demographic Data\esri_bg.bds')
 
 # now go write the rest of the script and look at demographics like a boss!
 ```
