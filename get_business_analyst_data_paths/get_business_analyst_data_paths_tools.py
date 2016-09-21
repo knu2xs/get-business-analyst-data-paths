@@ -67,16 +67,25 @@ def get_current_business_analyst_usa_data_key():
     return get_first_child_key('Software\ESRI\BusinessAnalyst\Datasets', 'USA_ESRI')
 
 
-def get_usa_locator_path():
+def get_business_analyst_key_value(locator_key):
     """
-    Get the directory path to the address locator installed with Business Analyst USA data.
-    :return: String directory path to the address locator installed with Business Analyst USA data.
+    In the Business Analyst key, get the value corresponding to the provied locator key.
+    :param locator_key: Locator key.
+    :return: Key value.
     """
     # open the key to the current installation of Business Analyst data
     key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, get_current_business_analyst_usa_data_key())
 
     # query the value of the locator key
-    return winreg.QueryValueEx(key, 'Locator')[0]
+    return winreg.QueryValueEx(key, locator_key)[0]
+
+
+def get_usa_locator_path():
+    """
+    Get the directory path to the address locator installed with Business Analyst USA data.
+    :return: String directory path to the address locator installed with Business Analyst USA data.
+    """
+    return get_business_analyst_key_value('Locator')
 
 
 def get_usa_network_dataset_path():
@@ -84,8 +93,12 @@ def get_usa_network_dataset_path():
     Get the directory path to the network dataset installed with Business Analyst USA data.
     :return: String directory path to the network dataset installed with Business Analyst USA data.
     """
-    # open the key to the current installation of Business Analyst data
-    key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, get_current_business_analyst_usa_data_key())
+    return get_business_analyst_key_value('StreetsNetwork')
 
-    # query the key for the value of the streets network key
-    return winreg.QueryValueEx(key, 'StreetsNetwork')[0]
+
+def get_usa_data_path():
+    """
+    Get the directory path where the Business Analyst USA data is located.
+    :return: String directory path to where the Business Analyst USA data is installed.
+    """
+    return get_business_analyst_key_value('DataInstallDir')
