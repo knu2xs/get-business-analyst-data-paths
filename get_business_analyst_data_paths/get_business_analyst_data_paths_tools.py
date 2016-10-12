@@ -93,3 +93,11 @@ def get_usa_network_dataset_path():
 
     # query the key for the value of the streets network key
     return winreg.QueryValueEx(key, 'StreetsNetwork')[0]
+
+
+def get_usa_data_path():
+    """
+    Get the directory path where the Business Analyst USA data is located.
+    :return: String directory path to where the Business Analyst USA data is installed.
+    """
+    return get_business_analyst_key_value('DataInstallDir')
