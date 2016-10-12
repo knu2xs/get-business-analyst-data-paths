@@ -1,5 +1,9 @@
 # import modules
-import winreg
+import sys
+if sys.version_info > (3, 0):
+    import winreg
+else:
+    import _winreg as winreg
 
 
 def get_child_keys(key_path):
